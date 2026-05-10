@@ -1,6 +1,6 @@
 # Dynamics 365 Finance & Operations developer catalog.
-# TRUDUtils-style entries may use install.kind d365_vs_addin_extensions (Dynamics VS AddinExtensions folder).
-# SSD365VSAddIn (upstream & Shadowchamber fork) uses DynamicsDevConfig.xml AddInPaths / repo install.ps1 - no d365_vs_addin_extensions install block.
+# install.kind d365_vs_addin_extensions: catalog manager downloads files into Dynamics VS AddinExtensions (see TRUDUtils / InstallToVS pattern).
+# SSD365 README also documents AddInPaths + DynamicsDevConfig.xml - alternate if AddinExtensions drop does not load the add-in.
 #
 # Raw URL:
 #   https://raw.githubusercontent.com/shadowchamber/d365f-addins/main/index.yml
@@ -40,10 +40,8 @@ addins:
     description: >
       Visual Studio add-in for Dynamics 365 Finance & Operations (designer-centric: labels, extensions,
       security duties/privileges, forms, EDTs, templates, experimental tools). Targets platform 10.0.10+;
-      VS 2022 supported (see repo README). Install is not AddinExtensions-based: use the official
-      PowerShell one-liner from README, or copy DLLs from OutputDlls / latest GitHub release assets and
-      register the folder under AddInPaths in DynamicsDevConfig.xml (manual steps in README).
-      Latest release tag v10.0.40.2 "Update for VS2022.1" includes SSD365VSAddIn.dll and dependencies.
+      VS 2022 supported. Release v10.0.40.2 assets listed below for AddinExtensions install via this catalog;
+      upstream README also documents PowerShell install.ps1 and DynamicsDevConfig.xml AddInPaths.
     version: "10.0.40.2"
     last_update: "2024-12-20"
     publisher: shashisadasivan
@@ -56,16 +54,19 @@ addins:
       - designer
       - productivity
       - ssd365
+    install:
+      kind: d365_vs_addin_extensions
+      files:
+        - name: SSD365VSAddIn.dll
+          url: "https://github.com/shashisadasivan/SSD365VSAddIn/releases/download/v10.0.40.2/SSD365VSAddIn.dll"
 
   - id: ssd365vsaddin-shadowchamber
     name: SSD365VSAddIn (Shadowchamber)
     description: >
       SSD365VSAddIn fork maintained by Shadowchamber (based on shashisadasivan/SSD365VSAddIn): Visual Studio
-      add-in for Dynamics 365 FO designer workflows (labels, extensions, security, forms, EDTs, templates).
-      Install matches fork README - PowerShell:
-      iex (iwr "https://raw.githubusercontent.com/shadowchamber/SSD365VSAddIn/master/Misc/install.ps1").Content
-      - or manual OutputDlls / release DLLs plus DynamicsDevConfig.xml AddInPaths. Latest release:
-      vs2022foUpd65 ("vs2022 fo update 65"); notes: fix update 65 issues.
+      add-in for Dynamics 365 FO designer workflows. Release vs2022foUpd65 assets below for AddinExtensions
+      install via this catalog; fork README documents PowerShell install.ps1 and DynamicsDevConfig.xml AddInPaths.
+      Release notes: fix update 65 issues.
     version: "vs2022foUpd65"
     last_update: "2024-10-12"
     publisher: Shadowchamber
@@ -80,3 +81,10 @@ addins:
       - ssd365
       - fork
       - shadowchamber
+    install:
+      kind: d365_vs_addin_extensions
+      files:
+        - name: SSD365VSAddIn.dll
+          url: "https://github.com/shadowchamber/SSD365VSAddIn/releases/download/vs2022foUpd65/SSD365VSAddIn.dll"
+        - name: SSD365VSAddIn.pdb
+          url: "https://github.com/shadowchamber/SSD365VSAddIn/releases/download/vs2022foUpd65/SSD365VSAddIn.pdb"
