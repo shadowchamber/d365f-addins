@@ -1,7 +1,7 @@
-# D365 FO add-ins catalog — commit this file as index.yml at the repo root:
-#   https://github.com/shadowchamber/d365f-addins
+# Dynamics 365 Finance & Operations add-ins catalog (NOT Visual Studio VSIX extensions).
+# Commit as index.yml at the repo root: https://github.com/shadowchamber/d365f-addins
 #
-# Consumers load the raw file:
+# Raw URL for tools:
 #   https://raw.githubusercontent.com/shadowchamber/d365f-addins/main/index.yml
 
 catalog_version: 1
@@ -11,15 +11,17 @@ addins:
   - id: trudutils
     name: TrudUtils
     description: >
-      Productivity utilities for Microsoft Dynamics 365 Finance & Operations developers:
-      metadata helpers, label/unit-of-measure tooling, and batch diagnostics aimed at
-      cutting routine ALM and troubleshooting time.
+      Dynamics 365 FO add-in: productivity utilities for Finance & Operations developers
+      (metadata helpers, label and unit-of-measure tooling, batch diagnostics). Deployed as
+      application metadata / models in your environment, not as a Visual Studio extension.
     version: "2.14.3"
     last_update: "2026-04-28"
     publisher: Trud
     repository: "https://github.com/example/trudutils-d365"
-    vsix_download: "https://github.com/example/trudutils-d365/releases/download/v2.14.3/TrudUtils.vsix"
+    documentation_url: "https://github.com/example/trudutils-d365/wiki"
+    distribution_url: "https://github.com/example/trudutils-d365/releases"
     tags:
+      - d365fo
       - productivity
       - metadata
       - labels
