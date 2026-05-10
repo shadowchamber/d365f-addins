@@ -1,27 +1,35 @@
-# Dynamics 365 Finance & Operations add-ins catalog (NOT Visual Studio VSIX extensions).
-# Commit as index.yml at the repo root: https://github.com/shadowchamber/d365f-addins
+# Dynamics 365 Finance & Operations developer catalog.
+# Example entry: TRUDUtilsD365 Visual Studio add-in (DLLs via AddinExtensions; see InstallToVS upstream logic).
 #
-# Raw URL for tools:
+# Raw URL:
 #   https://raw.githubusercontent.com/shadowchamber/d365f-addins/main/index.yml
 
 catalog_version: 1
-updated: "2026-05-10"
+updated: "2026-03-23"
 
 addins:
   - id: trudutils
-    name: TrudUtils
+    name: TRUDUtilsD365
     description: >
-      Dynamics 365 FO add-in: productivity utilities for Finance & Operations developers
-      (metadata helpers, label and unit-of-measure tooling, batch diagnostics). Deployed as
-      application metadata / models in your environment, not as a Visual Studio extension.
-    version: "2.14.3"
-    last_update: "2026-04-28"
-    publisher: Trud
-    repository: "https://github.com/example/trudutils-d365"
-    documentation_url: "https://github.com/example/trudutils-d365/wiki"
-    distribution_url: "https://github.com/example/trudutils-d365/releases"
+      Visual Studio add-in for Dynamics 365 Finance & Operations development (DLL-based; installs into
+      the Dynamics VS tools AddinExtensions folder, same as the InstallToVS helper). Release 3.2.1
+      highlights: Show cross-reference Add-in. Upstream project and releases are maintained by TrudAX;
+      InstallToVS reference implementation: github.com/shadowchamber/TRUDUtilsD365/tree/master/InstallToVS.
+    version: "3.2.1"
+    last_update: "2026-03-23"
+    publisher: TrudAX
+    repository: "https://github.com/TrudAX/TRUDUtilsD365"
+    documentation_url: "https://github.com/TrudAX/TRUDUtilsD365/blob/master/README.md"
+    distribution_url: "https://github.com/TrudAX/TRUDUtilsD365/releases/tag/3.2.1"
     tags:
       - d365fo
+      - vs-addin
+      - trudutils
       - productivity
-      - metadata
-      - labels
+    install:
+      kind: d365_vs_addin_extensions
+      files:
+        - name: TRUDUtilsD365.dll
+          url: "https://github.com/TrudAX/TRUDUtilsD365/releases/download/3.2.1/TRUDUtilsD365.dll"
+        - name: TRUDUtilsD365.pdb
+          url: "https://github.com/TrudAX/TRUDUtilsD365/releases/download/3.2.1/TRUDUtilsD365.pdb"
